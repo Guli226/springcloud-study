@@ -1,29 +1,17 @@
 server:
   port: 8772
 
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false  #表示是否将自己注册到Eureka Server，默认是true。
-    fetchRegistry: false #表示是否从Eureka Server获取注册信息，默认为true。
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+management:
+  endpoint:
+    shutdown:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
-
-spring:
-  config:
-    import: springcloud-config-server
-  application:
-    name: springcloud-config-client
-  cloud:
-    config:
-      enabled: true #配置是否生效，默认是true
-      import-check:
-        enabled: true #是否做配置检查，默认是true
-      name: configtest
-      profile: pro
-      label: main
-      discovery:
-        enabled: true
-        serviceId: springcloud-config-server
+#data:
+#  env: NaN
+#  user:
+#    username: NaN
+#    password: NaN

@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  application:
+    name: springcloud-config-client
+  cloud:
+    config:
+      uri: http://localhost:8771
+      label: main
+      profile: prod
+  config:
+    activate:
+      on-profile: prod
+
+
+---
+spring:
+  application:
+    name: springcloud-config-client
+  cloud:
+    config:
+      uri: http://localhost:8771
+      label: main
+      profile: dev
+  config:
+    activate:
+      on-profile: dev
